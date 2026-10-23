@@ -1,0 +1,43 @@
+# ==========================================
+# Maven build target directory
+# ==========================================
+target/
+*.war
+*.jar
+
+# ==========================================
+# Environment Variables & Secrets
+# ==========================================
+.env
+.env.local
+.env.*.local
+
+# ==========================================
+# IDE & Editor files
+# ==========================================
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# ==========================================
+# Operating System files
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# User Uploads (keep directory structure)
+# ==========================================
+uploads/*
+!uploads/.gitkeep
+
+# ==========================================
+# Logs & Screenshots
+# ==========================================
+*.log
+logs/
+rendered_screenshots/
