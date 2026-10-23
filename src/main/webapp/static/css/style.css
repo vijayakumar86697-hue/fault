@@ -1,0 +1,397 @@
+/* ============================================================================
+   Campus Infrastructure Fault Reporting System - Master Stylesheet
+   Color Palette: Deep Navy Blue, Cool Gray, White, with Crisp Status Accents
+   ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+    --navy-primary: #0f2744;
+    --navy-secondary: #1a3c63;
+    --navy-accent: #2563eb;
+    --navy-light: #e2e8f0;
+    --navy-surface: #1e3a5f;
+    --bg-main: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --border-subtle: #cbd5e1;
+    --sidebar-width: 260px;
+    --topbar-height: 68px;
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-font {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+/* ============================================================================
+   Navigation & Layout
+   ============================================================================ */
+
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.app-sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--navy-primary);
+    color: #f1f5f9;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1020;
+    transition: all 0.3s ease;
+}
+
+.sidebar-header {
+    height: var(--topbar-height);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-brand {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sidebar-brand i {
+    font-size: 1.5rem;
+    color: #38bdf8;
+}
+
+.sidebar-menu {
+    padding: 1.25rem 0.75rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.menu-section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    padding: 0.75rem 0.75rem 0.35rem;
+    font-weight: 600;
+}
+
+.nav-item-custom {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    margin-bottom: 0.25rem;
+}
+
+.nav-item-custom i {
+    font-size: 1.15rem;
+    width: 24px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+.nav-item-custom:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.nav-item-custom:hover i {
+    color: #38bdf8;
+}
+
+.nav-item-custom.active {
+    color: #ffffff;
+    background-color: var(--navy-secondary);
+    border-left: 3px solid #38bdf8;
+    font-weight: 600;
+}
+
+.nav-item-custom.active i {
+    color: #38bdf8;
+}
+
+.app-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.app-topbar {
+    height: var(--topbar-height);
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1010;
+    box-shadow: var(--shadow-sm);
+}
+
+.content-body {
+    padding: 2rem 2.25rem;
+    flex-grow: 1;
+}
+
+/* ============================================================================
+   Cards & Metrics
+   ============================================================================ */
+
+.card-custom {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+    overflow: hidden;
+}
+
+.card-custom:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.stat-card {
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-icon.primary { background-color: #eff6ff; color: #2563eb; }
+.stat-icon.success { background-color: #ecfdf5; color: #059669; }
+.stat-icon.warning { background-color: #fffbeb; color: #d97706; }
+.stat-icon.danger  { background-color: #fef2f2; color: #dc2626; }
+.stat-icon.info    { background-color: #f0f9ff; color: #0284c7; }
+.stat-icon.navy    { background-color: #f1f5f9; color: var(--navy-primary); }
+
+.stat-val {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.stat-lbl {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* ============================================================================
+   Status Badges & Pills
+   ============================================================================ */
+
+.badge-status {
+    padding: 0.35rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.badge-submitted    { background-color: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+.badge-under-review { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.badge-assigned     { background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe; }
+.badge-in-progress  { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.badge-on-hold      { background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
+.badge-completed    { background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.badge-closed       { background-color: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; }
+.badge-rejected     { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+.badge-reopened     { background-color: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+
+.badge-priority-low      { background-color: #f1f5f9; color: #475569; }
+.badge-priority-medium   { background-color: #e0f2fe; color: #0369a1; }
+.badge-priority-high     { background-color: #fef3c7; color: #b45309; }
+.badge-priority-critical { background-color: #fee2e2; color: #b91c1c; font-weight: 700; }
+
+/* ============================================================================
+   Interactive Status Timeline
+   ============================================================================ */
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 8px;
+    width: 2px;
+    background: #e2e8f0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-point {
+    position: absolute;
+    left: -2rem;
+    top: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 3px solid #2563eb;
+    box-shadow: 0 0 0 3px #eff6ff;
+}
+
+.timeline-point.completed {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px #ecfdf5;
+}
+
+.timeline-point.critical {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px #fef2f2;
+}
+
+.timeline-content {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.85rem 1.15rem;
+}
+
+/* ============================================================================
+   Tables & Data View
+   ============================================================================ */
+
+.table-custom {
+    margin-bottom: 0;
+}
+
+.table-custom th {
+    background-color: #f8fafc;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table-custom td {
+    padding: 0.85rem 1rem;
+    vertical-align: middle;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.table-custom tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* ============================================================================
+   Forms & Modals
+   ============================================================================ */
+
+.form-label-custom {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.35rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.btn-navy {
+    background-color: var(--navy-primary);
+    color: #ffffff;
+    border: 1px solid var(--navy-secondary);
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.btn-navy:hover {
+    background-color: var(--navy-secondary);
+    color: #ffffff;
+}
+
+/* ============================================================================
+   Responsive Tweaks
+   ============================================================================ */
+
+@media (max-width: 991.98px) {
+    .app-sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+    }
+
+    .app-sidebar.show {
+        left: 0;
+    }
+
+    .content-body {
+        padding: 1.25rem 1rem;
+    }
+}

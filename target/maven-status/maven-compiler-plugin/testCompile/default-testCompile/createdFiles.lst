@@ -1,0 +1,7 @@
+com\campus\IntegrationFlowTest.class
+com\campus\CampusFaultSystemApplicationTest.class
+HashSeeder.class
+com\campus\PasswordUtilTest.class
+com\campus\SecurityUtilTest.class
+com\campus\ComplaintDAOTest.class
+com\campus\PageCaptureHelper.class
